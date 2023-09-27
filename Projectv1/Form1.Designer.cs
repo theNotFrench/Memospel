@@ -75,6 +75,8 @@
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
             this.tmrKaart = new System.Windows.Forms.Timer(this.components);
+            this.pBoxTest2 = new System.Windows.Forms.PictureBox();
+            this.pBoxTest1 = new System.Windows.Forms.PictureBox();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
@@ -92,6 +94,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pBoxTest2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pBoxTest1)).BeginInit();
             this.SuspendLayout();
             // 
             // lblmemospel
@@ -141,6 +145,7 @@
             this.btn14.Name = "btn14";
             this.btn14.Size = new System.Drawing.Size(55, 65);
             this.btn14.TabIndex = 65;
+            this.btn14.TabStop = false;
             this.btn14.Text = "X";
             this.btn14.UseVisualStyleBackColor = true;
             this.btn14.Click += new System.EventHandler(this.btnCheck);
@@ -151,6 +156,7 @@
             this.btn15.Name = "btn15";
             this.btn15.Size = new System.Drawing.Size(55, 65);
             this.btn15.TabIndex = 64;
+            this.btn15.TabStop = false;
             this.btn15.Text = "X";
             this.btn15.UseVisualStyleBackColor = true;
             this.btn15.Click += new System.EventHandler(this.btnCheck);
@@ -161,6 +167,7 @@
             this.btn12.Name = "btn12";
             this.btn12.Size = new System.Drawing.Size(55, 65);
             this.btn12.TabIndex = 63;
+            this.btn12.TabStop = false;
             this.btn12.Text = "X";
             this.btn12.UseVisualStyleBackColor = true;
             this.btn12.Click += new System.EventHandler(this.btnCheck);
@@ -171,6 +178,7 @@
             this.btn8.Name = "btn8";
             this.btn8.Size = new System.Drawing.Size(55, 65);
             this.btn8.TabIndex = 62;
+            this.btn8.TabStop = false;
             this.btn8.Text = "X";
             this.btn8.UseVisualStyleBackColor = true;
             this.btn8.Click += new System.EventHandler(this.btnCheck);
@@ -181,6 +189,7 @@
             this.btn6.Name = "btn6";
             this.btn6.Size = new System.Drawing.Size(55, 65);
             this.btn6.TabIndex = 61;
+            this.btn6.TabStop = false;
             this.btn6.Text = "X";
             this.btn6.UseVisualStyleBackColor = true;
             this.btn6.Click += new System.EventHandler(this.btnCheck);
@@ -191,6 +200,7 @@
             this.btn7.Name = "btn7";
             this.btn7.Size = new System.Drawing.Size(55, 65);
             this.btn7.TabIndex = 60;
+            this.btn7.TabStop = false;
             this.btn7.Text = "X";
             this.btn7.UseVisualStyleBackColor = true;
             this.btn7.Click += new System.EventHandler(this.btnCheck);
@@ -201,6 +211,7 @@
             this.btn16.Name = "btn16";
             this.btn16.Size = new System.Drawing.Size(55, 65);
             this.btn16.TabIndex = 59;
+            this.btn16.TabStop = false;
             this.btn16.Text = "X";
             this.btn16.UseVisualStyleBackColor = true;
             this.btn16.Click += new System.EventHandler(this.btnCheck);
@@ -211,6 +222,7 @@
             this.btn11.Name = "btn11";
             this.btn11.Size = new System.Drawing.Size(55, 65);
             this.btn11.TabIndex = 58;
+            this.btn11.TabStop = false;
             this.btn11.Text = "X";
             this.btn11.UseVisualStyleBackColor = true;
             this.btn11.Click += new System.EventHandler(this.btnCheck);
@@ -221,6 +233,7 @@
             this.btn5.Name = "btn5";
             this.btn5.Size = new System.Drawing.Size(55, 65);
             this.btn5.TabIndex = 57;
+            this.btn5.TabStop = false;
             this.btn5.Text = "X";
             this.btn5.UseVisualStyleBackColor = true;
             this.btn5.Click += new System.EventHandler(this.btnCheck);
@@ -231,6 +244,7 @@
             this.btn9.Name = "btn9";
             this.btn9.Size = new System.Drawing.Size(55, 65);
             this.btn9.TabIndex = 56;
+            this.btn9.TabStop = false;
             this.btn9.Text = "X";
             this.btn9.UseVisualStyleBackColor = true;
             this.btn9.Click += new System.EventHandler(this.btnCheck);
@@ -241,6 +255,7 @@
             this.btn13.Name = "btn13";
             this.btn13.Size = new System.Drawing.Size(55, 65);
             this.btn13.TabIndex = 55;
+            this.btn13.TabStop = false;
             this.btn13.Text = "X";
             this.btn13.UseVisualStyleBackColor = true;
             this.btn13.Click += new System.EventHandler(this.btnCheck);
@@ -251,6 +266,7 @@
             this.btn10.Name = "btn10";
             this.btn10.Size = new System.Drawing.Size(55, 65);
             this.btn10.TabIndex = 54;
+            this.btn10.TabStop = false;
             this.btn10.Text = "X";
             this.btn10.UseVisualStyleBackColor = true;
             this.btn10.Click += new System.EventHandler(this.btnCheck);
@@ -261,6 +277,7 @@
             this.btn4.Name = "btn4";
             this.btn4.Size = new System.Drawing.Size(55, 65);
             this.btn4.TabIndex = 53;
+            this.btn4.TabStop = false;
             this.btn4.Text = "X";
             this.btn4.UseVisualStyleBackColor = true;
             this.btn4.Click += new System.EventHandler(this.btnCheck);
@@ -271,6 +288,7 @@
             this.btn3.Name = "btn3";
             this.btn3.Size = new System.Drawing.Size(55, 65);
             this.btn3.TabIndex = 52;
+            this.btn3.TabStop = false;
             this.btn3.Text = "X";
             this.btn3.UseVisualStyleBackColor = true;
             this.btn3.Click += new System.EventHandler(this.btnCheck);
@@ -281,6 +299,7 @@
             this.btn1.Name = "btn1";
             this.btn1.Size = new System.Drawing.Size(55, 65);
             this.btn1.TabIndex = 51;
+            this.btn1.TabStop = false;
             this.btn1.Text = "X";
             this.btn1.UseVisualStyleBackColor = true;
             this.btn1.Click += new System.EventHandler(this.btnCheck);
@@ -291,6 +310,7 @@
             this.btn2.Name = "btn2";
             this.btn2.Size = new System.Drawing.Size(55, 65);
             this.btn2.TabIndex = 50;
+            this.btn2.TabStop = false;
             this.btn2.Text = "X";
             this.btn2.UseVisualStyleBackColor = true;
             this.btn2.Click += new System.EventHandler(this.btnCheck);
@@ -517,11 +537,31 @@
             this.tmrKaart.Interval = 1000;
             this.tmrKaart.Tick += new System.EventHandler(this.tmrKaart_Tick);
             // 
+            // pBoxTest2
+            // 
+            this.pBoxTest2.Location = new System.Drawing.Point(523, 172);
+            this.pBoxTest2.Name = "pBoxTest2";
+            this.pBoxTest2.Size = new System.Drawing.Size(55, 65);
+            this.pBoxTest2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pBoxTest2.TabIndex = 76;
+            this.pBoxTest2.TabStop = false;
+            // 
+            // pBoxTest1
+            // 
+            this.pBoxTest1.Location = new System.Drawing.Point(462, 172);
+            this.pBoxTest1.Name = "pBoxTest1";
+            this.pBoxTest1.Size = new System.Drawing.Size(55, 65);
+            this.pBoxTest1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pBoxTest1.TabIndex = 77;
+            this.pBoxTest1.TabStop = false;
+            // 
             // frmProject
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1101, 408);
+            this.Controls.Add(this.pBoxTest1);
+            this.Controls.Add(this.pBoxTest2);
             this.Controls.Add(this.lblD);
             this.Controls.Add(this.lblC);
             this.Controls.Add(this.lblB);
@@ -586,6 +626,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pBoxTest2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pBoxTest1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -639,6 +681,8 @@
         private System.Windows.Forms.Label lblC;
         private System.Windows.Forms.Label lblD;
         private System.Windows.Forms.Timer tmrKaart;
+        private System.Windows.Forms.PictureBox pBoxTest2;
+        private System.Windows.Forms.PictureBox pBoxTest1;
     }
 }
 

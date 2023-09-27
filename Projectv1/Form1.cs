@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Imaging;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -104,7 +106,7 @@ namespace Projectv1
 
             int Row = imageList.GetLength(0);
             int Cols = imageList.GetLength(1);
-            int index = 0;
+
             int rowRandom;
             int colRandom;
             Image temp;
@@ -146,6 +148,8 @@ namespace Projectv1
 
                 lastRow = GetRow(button);
                 lastCol = GetCol(button);
+               
+
                 CheckImages(buttonLast , buttonFirst, rowButton, colButton , lastRow , lastCol);
 
             }
@@ -163,18 +167,36 @@ namespace Projectv1
 
 
         }
-        private void CheckImages(Button buttonLast, Button buttonFirst , int rowButton, int colButton, int lastRow, int lastCol) 
+        private void CheckImages(Button buttonLast, Button buttonFirst, int rowButton, int colButton, int lastRow, int lastCol)
         {
-            if (pictureBoxes[rowButton, colButton].Image == pictureBoxes[lastRow,lastCol].Image)
+            Image image1 = pictureBoxes[lastRow, lastCol].Image;
+            Image image2 = pictureBoxes[rowButton, colButton].Image;
+            if (AreImagesEqual(image1, image2))
             {
                 MessageBox.Show("it worked :D");
             }
             else
             {
-                    buttonLast.Visible = true;
-                    buttonFirst.Visible = true;
-                    MessageBox.Show("Row: " + rowButton + " Col: " + colButton + " Lastrow: " + lastRow + " lastCol: " + lastCol);
+                buttonLast.Visible = true;
+                buttonFirst.Visible = true;
+                MessageBox.Show("Row: " + rowButton + " Col: " + colButton + " Lastrow: " + lastRow + " lastCol: " + lastCol);
 
+            }
+        }
+        private bool AreImagesEqual(Image image1, Image image2)
+        {
+            // Convert the images to byte arrays for comparison
+            using (MemoryStream stream1 = new MemoryStream())
+            using (MemoryStream stream2 = new MemoryStream())
+            {
+                image1.Save(stream1, ImageFormat.Png);
+                image2.Save(stream2, ImageFormat.Png);
+
+                byte[] byteArray1 = stream1.ToArray();
+                byte[] byteArray2 = stream2.ToArray();
+
+                // Compare the byte arrays for equality
+                return byteArray1.SequenceEqual(byteArray2);
             }
         }
         private int GetRow(Button button)
