@@ -49,11 +49,7 @@ namespace Projectv1
             buttonList[3, 3] = btn16;
         }
 
-        private void btnOk_Click(object sender, EventArgs e)
-        {
-            string input;
 
-        }
         private void kaartenPlaatsen()
         {
             Random random = new Random();
