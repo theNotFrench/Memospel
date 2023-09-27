@@ -19,12 +19,14 @@ namespace Projectv1
         }
 
         int[,] boardStatus = new int[4, 4];
-        int optel = 0;
+        int firstButton =  0;
         int clockStop = 1;
         Button buttonFirst;
         Button buttonLast;
         int rowButton = 0;
         int colButton = 0;
+        int lastRow = 0;
+        int lastCol = 0;
         PictureBox[,] pictureBoxes = new PictureBox[4, 4];
         Image[,] imageList = new Image[4, 4];
         Button[,] buttonList = new Button[4, 4];
@@ -138,52 +140,47 @@ namespace Projectv1
 
 
 
-            if (optel == 1)
+            if (firstButton  == 1 )
             {
                 buttonLast = button;
-                int lastRow = 0;
-                int lastCol = 0;
-                GetRow(button, ref lastRow);
-                GetCol(button, ref lastCol);
-                CheckImages(buttonLast, buttonFirst ,rowButton, colButton, lastRow, lastCol);
+
+                lastRow = GetRow(button);
+                lastCol = GetCol(button);
+                CheckImages(buttonLast , buttonFirst, rowButton, colButton , lastRow , lastCol);
 
             }
             else
             {
-                optel = 0;
+                firstButton = 0 ;
                 buttonFirst = button;
             }
 
-            GetRow(button, ref rowButton);
-            GetCol(button, ref colButton);
+            rowButton = GetRow(button);
+            colButton = GetCol(button);
 
 
 
 
 
         }
-        private void CheckImages(Button buttonLast, Button buttonFirst , int rows, int cols, int lastRow, int lastCol) 
+        private void CheckImages(Button buttonLast, Button buttonFirst , int rowButton, int colButton, int lastRow, int lastCol) 
         {
-            if (pictureBoxes[rows, cols].Image == pictureBoxes[lastRow,lastCol].Image)
+            if (pictureBoxes[rowButton, colButton].Image == pictureBoxes[lastRow,lastCol].Image)
             {
-                
+                MessageBox.Show("it worked :D");
             }
             else
             {
-                tmrKaart.Start();
-                if (clockStop >= 2)
-                {
                     buttonLast.Visible = true;
                     buttonFirst.Visible = true;
-                    MessageBox.Show("row: " + rows + " col: " + cols + " Lastrow" + rows + " lastCol: " + lastCol);
-                }
-                
+                    MessageBox.Show("Row: " + rowButton + " Col: " + colButton + " Lastrow: " + lastRow + " lastCol: " + lastCol);
+
             }
         }
-        private int GetRow(Button button,  ref int rows)
+        private int GetRow(Button button)
         {
             
-
+            int rows = 0;
             for (int i = 0; i < buttonList.GetLength(0); i++)
             {
                 for (int j = 0; j < buttonList.GetLength(1); j++)
@@ -197,9 +194,9 @@ namespace Projectv1
             return rows;
 
         }
-        private int GetCol(Button button, ref int col)
+        private int GetCol(Button button)
         {
-
+            int col = 0;
             for (int i = 0; i < buttonList.GetLength(0); i++)
             {
                 for (int j = 0; j < buttonList.GetLength(1); j++)
@@ -212,7 +209,7 @@ namespace Projectv1
                     }
                 }
             }
-            optel++;
+            firstButton++;
             return col;
             
 
