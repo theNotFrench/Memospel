@@ -20,6 +20,9 @@ namespace Projectv1
 
         int[,] boardStatus = new int[4, 4];
         int optel = 0;
+        int clockStop = 1;
+        Button buttonFirst;
+        Button buttonLast;
         int rowButton = 0;
         int colButton = 0;
         PictureBox[,] pictureBoxes = new PictureBox[4, 4];
@@ -137,20 +140,22 @@ namespace Projectv1
             Button button = (Button)sender;
             button.Visible = false;
 
-            
+
 
             if (optel == 1)
             {
+                buttonLast = button;
                 int lastRow = 0;
                 int lastCol = 0;
                 GetRow(button, ref lastRow);
                 GetCol(button, ref lastCol);
-               
+                CheckImages(buttonLast, buttonFirst ,rowButton, colButton, lastRow, lastCol);
 
             }
             else
             {
                 optel = 0;
+                buttonFirst = button;
             }
 
             GetRow(button, ref rowButton);
@@ -160,6 +165,24 @@ namespace Projectv1
 
 
 
+        }
+        private void CheckImages(Button buttonLast, Button buttonFirst , int rows, int cols, int lastRow, int lastCol) 
+        {
+            if (pictureBoxes[rows, cols].Image == pictureBoxes[lastRow,lastCol].Image)
+            {
+                
+            }
+            else
+            {
+                tmrKaart.Start();
+                if (clockStop >= 2)
+                {
+                    buttonLast.Visible = true;
+                    buttonFirst.Visible = true;
+                    MessageBox.Show("row: " + rows + " col: " + cols + " Lastrow" + rows + " lastCol: " + lastCol);
+                }
+                
+            }
         }
         private int GetRow(Button button,  ref int rows)
         {
@@ -197,6 +220,15 @@ namespace Projectv1
             return col;
             
 
+        }
+
+        private void tmrKaart_Tick(object sender, EventArgs e)
+        {
+            clockStop++;
+            if (tmrKaart.Interval >= 3000)
+            {
+                tmrKaart.Stop();
+            }
         }
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lblmemospel = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -73,6 +74,7 @@
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
+            this.tmrKaart = new System.Windows.Forms.Timer(this.components);
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
@@ -510,6 +512,11 @@
             this.pictureBox9.TabIndex = 18;
             this.pictureBox9.TabStop = false;
             // 
+            // tmrKaart
+            // 
+            this.tmrKaart.Interval = 1000;
+            this.tmrKaart.Tick += new System.EventHandler(this.tmrKaart_Tick);
+            // 
             // frmProject
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -631,6 +638,7 @@
         private System.Windows.Forms.Label lblB;
         private System.Windows.Forms.Label lblC;
         private System.Windows.Forms.Label lblD;
+        private System.Windows.Forms.Timer tmrKaart;
     }
 }
 
