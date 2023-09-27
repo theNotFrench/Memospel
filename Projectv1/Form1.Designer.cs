@@ -49,8 +49,6 @@
             this.btn3 = new System.Windows.Forms.Button();
             this.btn1 = new System.Windows.Forms.Button();
             this.btn2 = new System.Windows.Forms.Button();
-            this.txtinput = new System.Windows.Forms.TextBox();
-            this.lbltext = new System.Windows.Forms.Label();
             this.lbl1 = new System.Windows.Forms.Label();
             this.lbl2 = new System.Windows.Forms.Label();
             this.lbl3 = new System.Windows.Forms.Label();
@@ -59,7 +57,6 @@
             this.lblB = new System.Windows.Forms.Label();
             this.lblC = new System.Windows.Forms.Label();
             this.lblD = new System.Windows.Forms.Label();
-            this.btnOk = new System.Windows.Forms.Button();
             this.pictureBox16 = new System.Windows.Forms.PictureBox();
             this.pictureBox12 = new System.Windows.Forms.PictureBox();
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
@@ -296,22 +293,6 @@
             this.btn2.UseVisualStyleBackColor = true;
             this.btn2.Click += new System.EventHandler(this.btnCheck);
             // 
-            // txtinput
-            // 
-            this.txtinput.Location = new System.Drawing.Point(136, 75);
-            this.txtinput.Name = "txtinput";
-            this.txtinput.Size = new System.Drawing.Size(100, 20);
-            this.txtinput.TabIndex = 66;
-            // 
-            // lbltext
-            // 
-            this.lbltext.AutoSize = true;
-            this.lbltext.Location = new System.Drawing.Point(40, 78);
-            this.lbltext.Name = "lbltext";
-            this.lbltext.Size = new System.Drawing.Size(90, 13);
-            this.lbltext.TabIndex = 67;
-            this.lbltext.Text = "geef in de positie:";
-            // 
             // lbl1
             // 
             this.lbl1.AutoSize = true;
@@ -383,16 +364,6 @@
             this.lblD.Size = new System.Drawing.Size(15, 13);
             this.lblD.TabIndex = 75;
             this.lblD.Text = "D";
-            // 
-            // btnOk
-            // 
-            this.btnOk.Location = new System.Drawing.Point(242, 72);
-            this.btnOk.Name = "btnOk";
-            this.btnOk.Size = new System.Drawing.Size(44, 23);
-            this.btnOk.TabIndex = 76;
-            this.btnOk.Text = "Ok";
-            this.btnOk.UseVisualStyleBackColor = true;
-            this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
             // 
             // pictureBox16
             // 
@@ -544,7 +515,6 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1101, 408);
-            this.Controls.Add(this.btnOk);
             this.Controls.Add(this.lblD);
             this.Controls.Add(this.lblC);
             this.Controls.Add(this.lblB);
@@ -553,8 +523,6 @@
             this.Controls.Add(this.lbl3);
             this.Controls.Add(this.lbl2);
             this.Controls.Add(this.lbl1);
-            this.Controls.Add(this.lbltext);
-            this.Controls.Add(this.txtinput);
             this.Controls.Add(this.btn14);
             this.Controls.Add(this.btn15);
             this.Controls.Add(this.btn12);
@@ -655,8 +623,6 @@
         private System.Windows.Forms.Button btn3;
         private System.Windows.Forms.Button btn1;
         private System.Windows.Forms.Button btn2;
-        private System.Windows.Forms.TextBox txtinput;
-        private System.Windows.Forms.Label lbltext;
         private System.Windows.Forms.Label lbl1;
         private System.Windows.Forms.Label lbl2;
         private System.Windows.Forms.Label lbl3;
@@ -665,7 +631,6 @@
         private System.Windows.Forms.Label lblB;
         private System.Windows.Forms.Label lblC;
         private System.Windows.Forms.Label lblD;
-        private System.Windows.Forms.Button btnOk;
     }
 }
 
