@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.VisualBasic;
 
 namespace Projectv1
 {
@@ -20,9 +21,9 @@ namespace Projectv1
             InitializeComponent();
         }
 
-        int[,] boardStatus = new int[4, 4];
-        int firstButton =  0;
+        int firstButton = 0;
         int clockStop = 1;
+        int kaartZichtbaar = 0;
         Button buttonFirst;
         Button buttonLast;
         int rowButton = 0;
@@ -32,12 +33,17 @@ namespace Projectv1
         PictureBox[,] pictureBoxes = new PictureBox[4, 4];
         Image[,] imageList = new Image[4, 4];
         Button[,] buttonList = new Button[4, 4];
+        Label[] labelList = new Label[8];
         int aantalTries = 0;
         int einde = 0;
+        Image image1;
+        Image image2;
 
         private void frmProject_Load(object sender, EventArgs e)
         {
             kaartenPlaatsen();
+
+
             buttonList[0, 0] = btn1;
             buttonList[0, 1] = btn2;
             buttonList[0, 2] = btn3;
@@ -54,9 +60,14 @@ namespace Projectv1
             buttonList[3, 1] = btn14;
             buttonList[3, 2] = btn15;
             buttonList[3, 3] = btn16;
+
+
         }
 
+        private void kaartenKiezenInput()
+        {
 
+        }
         private void kaartenPlaatsen()
         {
             Random random = new Random();
@@ -141,39 +152,41 @@ namespace Projectv1
         private void btnCheck(object sender, EventArgs e)
         {
             Button button = (Button)sender;
+            KnopChecken(button);
+        }
+
+        private void KnopChecken(Button button)
+        {
             button.Visible = false;
 
 
 
-            if (firstButton  == 1 )
+            if (firstButton == 1)
             {
                 buttonLast = button;
 
                 lastRow = GetRow(button);
                 lastCol = GetCol(button);
-               
 
-                CheckImages(buttonLast , buttonFirst, rowButton, colButton , lastRow , lastCol);
+
+                CheckImages(buttonLast, buttonFirst, rowButton, colButton, lastRow, lastCol);
 
             }
             else
             {
-                firstButton = 0 ;
+                firstButton = 0;
                 buttonFirst = button;
             }
 
             rowButton = GetRow(button);
             colButton = GetCol(button);
 
-
-
-
-
         }
         private void CheckImages(Button buttonLast, Button buttonFirst, int rowButton, int colButton, int lastRow, int lastCol)
         {
-            Image image1 = pictureBoxes[lastRow, lastCol].Image;
-            Image image2 = pictureBoxes[rowButton, colButton].Image;
+            image1 = pictureBoxes[lastRow, lastCol].Image;
+            image2 = pictureBoxes[rowButton, colButton].Image;
+            aantalTries++;
             if (AreImagesEqual(image1, image2))
             {
                 einde++;
@@ -184,13 +197,34 @@ namespace Projectv1
             }
             else
             {
+
+                tmrKaart.Start();
+            }
+
+            lblText.Text = "amount tries: " + aantalTries;
+        }
+        private void VisibilityKaart()
+        {
+            buttonFirst.Visible = false;
+            buttonLast.Visible = false;
+            firstButton = 0;
+            for (int i = 0; i < buttonList.GetLength(0); i++)
+            {
+                for (int j = 0; j < buttonList.GetLength(1); j++)
+                {
+                    buttonList[i, j].Enabled = true;
+                }
+            }
+            tmrKaart.Stop();
+            if (kaartZichtbaar == 1)
+            {
+                clockStop = 0;
                 buttonLast.Visible = true;
                 buttonFirst.Visible = true;
-                MessageBox.Show("Row: " + rowButton + " Col: " + colButton + " Lastrow: " + lastRow + " lastCol: " + lastCol);
+
+                kaartZichtbaar = 0;
 
             }
-            aantalTries++;
-            lblText.Text = "amount tries: " + aantalTries;
         }
         private bool AreImagesEqual(Image image1, Image image2)
         {
@@ -210,13 +244,13 @@ namespace Projectv1
         }
         private int GetRow(Button button)
         {
-            
+
             int rows = 0;
             for (int i = 0; i < buttonList.GetLength(0); i++)
             {
                 for (int j = 0; j < buttonList.GetLength(1); j++)
                 {
-                    if (button == buttonList[i,j])
+                    if (button == buttonList[i, j])
                     {
                         rows = i;
                     }
@@ -242,23 +276,50 @@ namespace Projectv1
             }
             firstButton++;
             return col;
-            
+
 
         }
 
         private void tmrKaart_Tick(object sender, EventArgs e)
         {
             clockStop++;
-            if (tmrKaart.Interval >= 3000)
+            if (clockStop == 3)
             {
+                kaartZichtbaar++;
+                VisibilityKaart();
                 tmrKaart.Stop();
             }
         }
+        private void restartGame()
+        {
+            aantalTries = 0;
+            lblText.Text = "amount tries: " + aantalTries;
+            einde = 0;
+            firstButton = 0;
+            kaartenPlaatsen();
+            for (int i = 0; i < buttonList.GetLength(0); i++)
+            {
+                for (int j = 0; j < buttonList.GetLength(1); j++)
+                {
+                    buttonList[i, j].Visible = true;
+                }
+            }
 
+        }
         private void closeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
+
+        private void restartToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            restartGame();
+        }
+
+
+
+
+
     }
 }
 
