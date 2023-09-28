@@ -453,7 +453,7 @@
             // 
             // tmrKaart
             // 
-            this.tmrKaart.Interval = 500;
+            this.tmrKaart.Interval = 200;
             this.tmrKaart.Tick += new System.EventHandler(this.tmrKaart_Tick);
             // 
             // lblText
