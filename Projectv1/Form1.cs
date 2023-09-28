@@ -33,7 +33,6 @@ namespace Projectv1
         PictureBox[,] pictureBoxes = new PictureBox[4, 4];
         Image[,] imageList = new Image[4, 4];
         Button[,] buttonList = new Button[4, 4];
-        Label[] labelList = new Label[8];
         int aantalTries = 0;
         int einde = 0;
         Image image1;
@@ -73,9 +72,6 @@ namespace Projectv1
             Random random = new Random();
             Random g2 = new Random();
 
-            //ik heb  ontdekt dat je images en pictureboxes ook in een array kunt steken wat zeer handig is in deze situatie
-            //door de images en de picture boxesin een array te steken kan ik zo een random getal door laten gaan via de index
-            //hiermee kan ik zonder het compleet manueel uit te schrijven het verkorteren in een whiel of een for 
 
 
 
@@ -124,7 +120,7 @@ namespace Projectv1
             int rowRandom;
             int colRandom;
             Image temp;
-            //hierin zorg ik ervoor dat ik de images op willekeurige plaatsen te zetten in de array zoda tik het erna kan uitschrijven in de picture boxes
+            //hierin zorg ik ervoor dat ik de images op willekeurige plaatsen te zetten in de array zodat ik het erna kan uitschrijven in de picture boxes
             for (int i = 0; i < Row; i++)
             {
                 for (int j = 0; j < Cols; j++)
@@ -151,6 +147,7 @@ namespace Projectv1
 
         private void btnCheck(object sender, EventArgs e)
         {
+            //neemt de button zijn sender en stuurt het naar de functie
             Button button = (Button)sender;
             KnopChecken(button);
         }
@@ -160,7 +157,7 @@ namespace Projectv1
             button.Visible = false;
 
 
-
+            //controleer of dit de eerste of de tweede gekozen knop is
             if (firstButton == 1)
             {
                 buttonLast = button;
@@ -168,57 +165,72 @@ namespace Projectv1
                 lastRow = GetRow(button);
                 lastCol = GetCol(button);
 
-
+                //steekt alles in deze functie om dan te checken of de fotos gelijk zijn
                 CheckImages(buttonLast, buttonFirst, rowButton, colButton, lastRow, lastCol);
 
             }
             else
             {
+                //zorgt ervoor dat je het weer opnieuw kunt doen met de volgende buttons
                 firstButton = 0;
                 buttonFirst = button;
             }
-
+            //haalt de positie van de buttons op in de matrix
             rowButton = GetRow(button);
             colButton = GetCol(button);
 
         }
         private void CheckImages(Button buttonLast, Button buttonFirst, int rowButton, int colButton, int lastRow, int lastCol)
         {
+            //haalt op de twee images die gekozen waren
             image1 = pictureBoxes[lastRow, lastCol].Image;
             image2 = pictureBoxes[rowButton, colButton].Image;
             aantalTries++;
+            //controleerd of de fotos gelijk zijn
             if (AreImagesEqual(image1, image2))
             {
                 einde++;
+                //controleert of alle kaarten zijn gevonden
                 if (einde == 8)
                 {
-                    MessageBox.Show("je bent klaar met de game! totaal aantal tries: " + aantalTries);
+                    DialogResult result = MessageBox.Show("Je hebt het spel voltooid! Totaal aantal pogingen: " + aantalTries + ". Wil je opnieuw spelen?", "Spel voltooid", MessageBoxButtons.YesNo);
+                    if (result == DialogResult.Yes)
+                    {
+                        // Opnieuw starten als de speler op "Ja" klikt
+                        restartGame();
+                    }
+                    else
+                    {
+                        // Afsluiten als de speler op "Nee" klikt
+                        Application.Exit();
+                    }
                 }
             }
             else
             {
-
+                //start de timer om de kaarten niet ondmiddelijk te sluiten
                 tmrKaart.Start();
             }
-
+            //voegt de aantal keren dat je probeerde aan de label
             lblText.Text = "amount tries: " + aantalTries;
         }
         private void VisibilityKaart()
         {
+            //verbergd de eerste en laatste knop 
             buttonFirst.Visible = false;
             buttonLast.Visible = false;
+            //reset de eerste knop indicator
             firstButton = 0;
-            for (int i = 0; i < buttonList.GetLength(0); i++)
-            {
-                for (int j = 0; j < buttonList.GetLength(1); j++)
-                {
-                    buttonList[i, j].Enabled = true;
-                }
-            }
+
+            //stopt de timer
             tmrKaart.Stop();
-            if (kaartZichtbaar == 1)
+            //checked of het door de timer is voorbij gegaan
+            if (tmrKaart.Enabled == false)
             {
+
                 clockStop = 0;
+                
+                //maakt de eerste en tweede knop weer zichtbaar
                 buttonLast.Visible = true;
                 buttonFirst.Visible = true;
 
@@ -228,7 +240,7 @@ namespace Projectv1
         }
         private bool AreImagesEqual(Image image1, Image image2)
         {
-            // Convert the images to byte arrays for comparison
+            //converteert de fotos naar byte
             using (MemoryStream stream1 = new MemoryStream())
             using (MemoryStream stream2 = new MemoryStream())
             {
@@ -238,13 +250,13 @@ namespace Projectv1
                 byte[] byteArray1 = stream1.ToArray();
                 byte[] byteArray2 = stream2.ToArray();
 
-                // Compare the byte arrays for equality
+                //vergelijked de byte arrays of ze gelijk zijn
                 return byteArray1.SequenceEqual(byteArray2);
             }
         }
         private int GetRow(Button button)
         {
-
+            //haalt op de kolom positie
             int rows = 0;
             for (int i = 0; i < buttonList.GetLength(0); i++)
             {
@@ -261,6 +273,7 @@ namespace Projectv1
         }
         private int GetCol(Button button)
         {
+            //haalt op de rij positie
             int col = 0;
             for (int i = 0; i < buttonList.GetLength(0); i++)
             {
@@ -282,6 +295,7 @@ namespace Projectv1
 
         private void tmrKaart_Tick(object sender, EventArgs e)
         {
+            //gaat een second of twee de kaarten open houden
             clockStop++;
             if (clockStop == 3)
             {
@@ -292,6 +306,7 @@ namespace Projectv1
         }
         private void restartGame()
         {
+            //herstart het hele spel
             aantalTries = 0;
             lblText.Text = "amount tries: " + aantalTries;
             einde = 0;
