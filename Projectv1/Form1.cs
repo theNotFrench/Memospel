@@ -32,6 +32,9 @@ namespace Projectv1
         PictureBox[,] pictureBoxes = new PictureBox[4, 4];
         Image[,] imageList = new Image[4, 4];
         Button[,] buttonList = new Button[4, 4];
+        int aantalTries = 0;
+        int einde = 0;
+
         private void frmProject_Load(object sender, EventArgs e)
         {
             kaartenPlaatsen();
@@ -173,7 +176,11 @@ namespace Projectv1
             Image image2 = pictureBoxes[rowButton, colButton].Image;
             if (AreImagesEqual(image1, image2))
             {
-                MessageBox.Show("it worked :D");
+                einde++;
+                if (einde == 8)
+                {
+                    MessageBox.Show("je bent klaar met de game! totaal aantal tries: " + aantalTries);
+                }
             }
             else
             {
@@ -182,6 +189,8 @@ namespace Projectv1
                 MessageBox.Show("Row: " + rowButton + " Col: " + colButton + " Lastrow: " + lastRow + " lastCol: " + lastCol);
 
             }
+            aantalTries++;
+            lblText.Text = "amount tries: " + aantalTries;
         }
         private bool AreImagesEqual(Image image1, Image image2)
         {
@@ -244,6 +253,11 @@ namespace Projectv1
             {
                 tmrKaart.Stop();
             }
+        }
+
+        private void closeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

@@ -50,14 +50,6 @@
             this.btn3 = new System.Windows.Forms.Button();
             this.btn1 = new System.Windows.Forms.Button();
             this.btn2 = new System.Windows.Forms.Button();
-            this.lbl1 = new System.Windows.Forms.Label();
-            this.lbl2 = new System.Windows.Forms.Label();
-            this.lbl3 = new System.Windows.Forms.Label();
-            this.lbl4 = new System.Windows.Forms.Label();
-            this.lbA = new System.Windows.Forms.Label();
-            this.lblB = new System.Windows.Forms.Label();
-            this.lblC = new System.Windows.Forms.Label();
-            this.lblD = new System.Windows.Forms.Label();
             this.pictureBox16 = new System.Windows.Forms.PictureBox();
             this.pictureBox12 = new System.Windows.Forms.PictureBox();
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
@@ -75,8 +67,7 @@
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
             this.tmrKaart = new System.Windows.Forms.Timer(this.components);
-            this.pBoxTest2 = new System.Windows.Forms.PictureBox();
-            this.pBoxTest1 = new System.Windows.Forms.PictureBox();
+            this.lblText = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
@@ -94,8 +85,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pBoxTest2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pBoxTest1)).BeginInit();
             this.SuspendLayout();
             // 
             // lblmemospel
@@ -130,14 +119,15 @@
             // restartToolStripMenuItem
             // 
             this.restartToolStripMenuItem.Name = "restartToolStripMenuItem";
-            this.restartToolStripMenuItem.Size = new System.Drawing.Size(110, 22);
+            this.restartToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.restartToolStripMenuItem.Text = "Restart";
             // 
             // closeToolStripMenuItem
             // 
             this.closeToolStripMenuItem.Name = "closeToolStripMenuItem";
-            this.closeToolStripMenuItem.Size = new System.Drawing.Size(110, 22);
+            this.closeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.closeToolStripMenuItem.Text = "Close";
+            this.closeToolStripMenuItem.Click += new System.EventHandler(this.closeToolStripMenuItem_Click);
             // 
             // btn14
             // 
@@ -315,78 +305,6 @@
             this.btn2.UseVisualStyleBackColor = true;
             this.btn2.Click += new System.EventHandler(this.btnCheck);
             // 
-            // lbl1
-            // 
-            this.lbl1.AutoSize = true;
-            this.lbl1.Location = new System.Drawing.Point(15, 149);
-            this.lbl1.Name = "lbl1";
-            this.lbl1.Size = new System.Drawing.Size(13, 13);
-            this.lbl1.TabIndex = 68;
-            this.lbl1.Text = "1";
-            // 
-            // lbl2
-            // 
-            this.lbl2.AutoSize = true;
-            this.lbl2.Location = new System.Drawing.Point(15, 220);
-            this.lbl2.Name = "lbl2";
-            this.lbl2.Size = new System.Drawing.Size(13, 13);
-            this.lbl2.TabIndex = 69;
-            this.lbl2.Text = "2";
-            // 
-            // lbl3
-            // 
-            this.lbl3.AutoSize = true;
-            this.lbl3.Location = new System.Drawing.Point(15, 291);
-            this.lbl3.Name = "lbl3";
-            this.lbl3.Size = new System.Drawing.Size(13, 13);
-            this.lbl3.TabIndex = 70;
-            this.lbl3.Text = "3";
-            // 
-            // lbl4
-            // 
-            this.lbl4.AutoSize = true;
-            this.lbl4.Location = new System.Drawing.Point(15, 362);
-            this.lbl4.Name = "lbl4";
-            this.lbl4.Size = new System.Drawing.Size(13, 13);
-            this.lbl4.TabIndex = 71;
-            this.lbl4.Text = "4";
-            // 
-            // lbA
-            // 
-            this.lbA.AutoSize = true;
-            this.lbA.Location = new System.Drawing.Point(64, 107);
-            this.lbA.Name = "lbA";
-            this.lbA.Size = new System.Drawing.Size(14, 13);
-            this.lbA.TabIndex = 72;
-            this.lbA.Text = "A";
-            // 
-            // lblB
-            // 
-            this.lblB.AutoSize = true;
-            this.lblB.Location = new System.Drawing.Point(116, 107);
-            this.lblB.Name = "lblB";
-            this.lblB.Size = new System.Drawing.Size(14, 13);
-            this.lblB.TabIndex = 73;
-            this.lblB.Text = "B";
-            // 
-            // lblC
-            // 
-            this.lblC.AutoSize = true;
-            this.lblC.Location = new System.Drawing.Point(169, 107);
-            this.lblC.Name = "lblC";
-            this.lblC.Size = new System.Drawing.Size(14, 13);
-            this.lblC.TabIndex = 74;
-            this.lblC.Text = "C";
-            // 
-            // lblD
-            // 
-            this.lblD.AutoSize = true;
-            this.lblD.Location = new System.Drawing.Point(228, 107);
-            this.lblD.Name = "lblD";
-            this.lblD.Size = new System.Drawing.Size(15, 13);
-            this.lblD.TabIndex = 75;
-            this.lblD.Text = "D";
-            // 
             // pictureBox16
             // 
             this.pictureBox16.Location = new System.Drawing.Point(211, 336);
@@ -537,39 +455,21 @@
             this.tmrKaart.Interval = 1000;
             this.tmrKaart.Tick += new System.EventHandler(this.tmrKaart_Tick);
             // 
-            // pBoxTest2
+            // lblText
             // 
-            this.pBoxTest2.Location = new System.Drawing.Point(523, 172);
-            this.pBoxTest2.Name = "pBoxTest2";
-            this.pBoxTest2.Size = new System.Drawing.Size(55, 65);
-            this.pBoxTest2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pBoxTest2.TabIndex = 76;
-            this.pBoxTest2.TabStop = false;
-            // 
-            // pBoxTest1
-            // 
-            this.pBoxTest1.Location = new System.Drawing.Point(462, 172);
-            this.pBoxTest1.Name = "pBoxTest1";
-            this.pBoxTest1.Size = new System.Drawing.Size(55, 65);
-            this.pBoxTest1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pBoxTest1.TabIndex = 77;
-            this.pBoxTest1.TabStop = false;
+            this.lblText.AutoSize = true;
+            this.lblText.Location = new System.Drawing.Point(43, 97);
+            this.lblText.Name = "lblText";
+            this.lblText.Size = new System.Drawing.Size(79, 13);
+            this.lblText.TabIndex = 66;
+            this.lblText.Text = "amount of tries:";
             // 
             // frmProject
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1101, 408);
-            this.Controls.Add(this.pBoxTest1);
-            this.Controls.Add(this.pBoxTest2);
-            this.Controls.Add(this.lblD);
-            this.Controls.Add(this.lblC);
-            this.Controls.Add(this.lblB);
-            this.Controls.Add(this.lbA);
-            this.Controls.Add(this.lbl4);
-            this.Controls.Add(this.lbl3);
-            this.Controls.Add(this.lbl2);
-            this.Controls.Add(this.lbl1);
+            this.Controls.Add(this.lblText);
             this.Controls.Add(this.btn14);
             this.Controls.Add(this.btn15);
             this.Controls.Add(this.btn12);
@@ -626,8 +526,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pBoxTest2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pBoxTest1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -672,17 +570,8 @@
         private System.Windows.Forms.Button btn3;
         private System.Windows.Forms.Button btn1;
         private System.Windows.Forms.Button btn2;
-        private System.Windows.Forms.Label lbl1;
-        private System.Windows.Forms.Label lbl2;
-        private System.Windows.Forms.Label lbl3;
-        private System.Windows.Forms.Label lbl4;
-        private System.Windows.Forms.Label lbA;
-        private System.Windows.Forms.Label lblB;
-        private System.Windows.Forms.Label lblC;
-        private System.Windows.Forms.Label lblD;
         private System.Windows.Forms.Timer tmrKaart;
-        private System.Windows.Forms.PictureBox pBoxTest2;
-        private System.Windows.Forms.PictureBox pBoxTest1;
+        private System.Windows.Forms.Label lblText;
     }
 }
 
